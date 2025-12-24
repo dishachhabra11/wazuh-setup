@@ -79,10 +79,9 @@ module "app_template" {
   source_image         = "projects/debian-cloud/global/images/family/debian-11"
   network              = module.network.vpc_name
   subnet               = element(module.network.subnet_names, 0)
-  service_account_email = var.default_service_account
   network_tags         = ["app"]
   metadata             = {
-    metadata_startup_script = file("${path.module}/../scripts/app-startup.sh")
+    metadata_startup_script = file("${path.module}/scripts/app-startup.sh")
   }
 }
 

@@ -14,3 +14,7 @@ variable "environment" {
 variable "zone" {
     type= string
 }
+
+variable "env" {
+    type = string 
+}
