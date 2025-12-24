@@ -1,6 +1,5 @@
 resource "google_compute_instance_template" "app-template" {
   name         = "${var.name_prefix}-template"
-  project      = var.project_id
   machine_type = var.machine_type
 
   disk {
