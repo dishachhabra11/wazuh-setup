@@ -8,7 +8,6 @@ module "network" {
   { name = "${var.env}-subnet-1", cidr_range = "10.10.1.0/24" },
   { name = "${var.env}-subnet-2", cidr_range = "10.10.2.0/24" }
 ]
-
 }
 
 
