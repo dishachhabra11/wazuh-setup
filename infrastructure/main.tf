@@ -73,7 +73,7 @@ module "dashboard" {
 }
 
 module "app_template" {
-  source               = "./modules/mig"
+  source               = "./modules/instance-template"
   name_prefix          = "${var.env}-app"
   project_id           = var.project_id
   region               = var.region
