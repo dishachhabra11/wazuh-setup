@@ -7,9 +7,6 @@ variable "region" {
   description = "Region for subnets"
 }
 
-variable "environment" {
-    type= string
-}
 
 variable "zone" {
     type= string
