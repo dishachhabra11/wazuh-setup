@@ -74,9 +74,7 @@ module "dashboard" {
 
 module "app_template" {
   source               = "./modules/instance-template"
-  name_prefix          = "${var.env}-app"
-  project_id           = var.project_id
-  region               = var.region
+  name          = "${var.env}-app"
   machine_type         = "e2-standard-2"
   source_image         = "projects/debian-cloud/global/images/family/debian-11"
   network              = module.network.vpc_name
@@ -93,7 +91,7 @@ module "app_mig" {
   project_id           = var.project_id
   region               = var.region
   name_prefix          = "${var.env}-app"
-  instance_template_id = module.mig.instance_template_id
+  instance_template_id = module.app_template.instance_template_id
   target_size          = 2
 }
 
@@ -101,7 +99,7 @@ module "wazuh_lb" {
   source              = "./modules/load-balancer"
   env                 = var.env
   lb_port             = "1514"
-  mig_instance_group  = module.mig.instance_group_self_link
+  mig_instance_group  = module.app_mig.instance_group_self_link
 }
 
 
