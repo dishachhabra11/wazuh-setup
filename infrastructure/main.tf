@@ -76,6 +76,7 @@ module "app_template" {
   source               = "./modules/mig"
   name_prefix          = "${var.env}-app"
   project_id           = var.project_id
+  region               = var.region
   machine_type         = "e2-standard-2"
   source_image         = "projects/debian-cloud/global/images/family/debian-11"
   network              = module.network.vpc_name
