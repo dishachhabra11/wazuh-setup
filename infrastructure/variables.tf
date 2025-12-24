@@ -1,5 +1,5 @@
 variable "project_id" {
-    type= string
+    type = string
 }
 
 variable "region" {
@@ -9,7 +9,7 @@ variable "region" {
 
 
 variable "zone" {
-    type= string
+    type = string
 }
 
 variable "env" {
