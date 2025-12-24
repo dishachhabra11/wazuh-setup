@@ -74,7 +74,7 @@ module "dashboard" {
 
 module "app_template" {
   source               = "./modules/instance-template"
-  name          = "${var.env}-app"
+  name_prefix         = "${var.env}-app"
   machine_type         = "e2-standard-2"
   source_image         = "projects/debian-cloud/global/images/family/debian-11"
   network              = module.network.vpc_name
