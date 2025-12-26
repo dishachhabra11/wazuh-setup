@@ -5,5 +5,5 @@ variable "image" {}
 variable "network" {}
 variable "subnet" {}
 variable "tags" {
-    list(string)
+   type = list(string)
 }
