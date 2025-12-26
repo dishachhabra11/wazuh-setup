@@ -7,4 +7,7 @@ resource "google_compute_backend_service" "tcp_backend" {
   backend {
     group = var.mig_instance_group  # pass the MIG self_link here
   }
+  lifecycle {
+    create_before_destroy = true
+  }
 }
