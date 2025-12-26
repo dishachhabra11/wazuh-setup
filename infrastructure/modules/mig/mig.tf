@@ -1,4 +1,4 @@
-resource "google_compute_region_instance_group_manager" "app_mig" {
+resource "google_compute_region_instance_group_manager" "wazuh-server-mig" {
   project             = var.project_id
   name                = "${var.name_prefix}-mig"
   region              = var.region

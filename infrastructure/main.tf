@@ -82,7 +82,7 @@ module "app_template" {
   }
 }
 
-module "app_mig" {
+module "wazuh-server-mig" {
   source               = "./modules/mig"
   project_id           = var.project_id
   region               = var.region
@@ -95,7 +95,7 @@ module "wazuh_lb" {
   source              = "./modules/load-balancer"
   env                 = var.env
   lb_port             = "1514"
-  mig_instance_group  = module.app_mig.instance_group_self_link
+  mig_instance_group  = module.wazuh-server-mig.instance_group_self_link
 }
 
 
