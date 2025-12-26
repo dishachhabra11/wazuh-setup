@@ -32,9 +32,9 @@ module "application-1" {
   subnet       = element(module.network.subnet_names, 0)  # gets the first subnet_names
 }
 
-module "application-1" {
+module "application-2" {
   source       = "./modules/compute"
-  name         = "application-1"
+  name         = "application-2"
   machine_type = "e2-small"
   zone         = var.zone
   image        = "ubuntu-minimal-2204-lts"
