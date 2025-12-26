@@ -1,3 +1,17 @@
+resource "google_compute_firewall" "general" {
+  name    = "${var.vpc_name}-wazuh-general"
+  network = google_compute_network.vpc.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+
+
+  source_ranges = ["10.0.0.0/8"]
+}
+
+
 resource "google_compute_firewall" "wazuh_internal" {
   name    = "${var.vpc_name}-wazuh-internal"
   network = google_compute_network.vpc.name
