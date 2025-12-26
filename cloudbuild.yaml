@@ -1,11 +1,15 @@
 steps:
 # 1. Initialize Terraform
-- id: 'terraform init'
-  # Use a publicly available Terraform Docker image (builder)
+- id: 'terraform import firewall'
   name: 'hashicorp/terraform:1.6.6'
-  entrypoint: 'terraform'
-  # Command arguments: terraform init
-  args: ["-chdir=./infrastructure", "init"]
+  entrypoint: 'sh'
+  args:
+    - -c
+    - |
+      terraform -chdir=./infrastructure init
+      terraform -chdir=./infrastructure import \
+      module.network.google_compute_firewall.application \
+      projects/alfred-chainlake-staging/global/firewalls/dev-wazuh-vpc-wazuh-dashboard
 
 
 # 2. Generate a Plan (preview changes)

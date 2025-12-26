@@ -67,5 +67,9 @@ resource "google_compute_firewall" "application" {
 
   source_ranges = ["10.0.0.0/8"]
   target_tags   = ["application"]
+
+  lifecycle{
+    create_before_destroy = true 
+  }
 }
 
