@@ -19,11 +19,12 @@ module "master1" {
   image        = "ubuntu-minimal-2204-lts"
   network      = module.network.vpc_name
   subnet       = element(module.network.subnet_names, 0)  # gets the first subnet_names
+  tags         =["wazuh-manager"]
 }
 
-module "worker1" {
+module "application-1" {
   source       = "./modules/compute"
-  name         = "wazuh-worker1"
+  name         = "application-1"
   machine_type = "e2-small"
   zone         = var.zone
   image        = "ubuntu-minimal-2204-lts"
@@ -31,9 +32,9 @@ module "worker1" {
   subnet       = element(module.network.subnet_names, 0)  # gets the first subnet_names
 }
 
-module "worker2" {
+module "application-1" {
   source       = "./modules/compute"
-  name         = "wazuh-worker2"
+  name         = "application-1"
   machine_type = "e2-small"
   zone         = var.zone
   image        = "ubuntu-minimal-2204-lts"
@@ -49,6 +50,7 @@ module "indexer1" {
   image        = "ubuntu-minimal-2204-lts"
   network      = module.network.vpc_name
   subnet       = element(module.network.subnet_names, 0)  # gets the first subnet_names
+  tags         =["wazuh-indexer"]
 }
 
 module "indexer2" {
@@ -59,6 +61,7 @@ module "indexer2" {
   image        = "ubuntu-minimal-2204-lts"
   network      = module.network.vpc_name
   subnet       = element(module.network.subnet_names, 0)  # gets the first subnet_names
+  tags         =["wazuh-indexer"]
 }
 
 module "dashboard" {
@@ -69,16 +72,19 @@ module "dashboard" {
   image        = "ubuntu-minimal-2204-lts"
   network      = module.network.vpc_name
   subnet       = element(module.network.subnet_names, 1)  # gets the second subnet_names
+   tags         =["wazuh-dashboard"]
+
 }
 
 module "app_template" {
   source               = "./modules/instance-template"
-  name_prefix         = "${var.env}-app"
+  name_prefix         = "${var.env}-worker"
   machine_type         = "e2-standard-2"
   source_image         = "projects/debian-cloud/global/images/family/debian-11"
   network              = module.network.vpc_name
   subnet               = element(module.network.subnet_names, 0)
-  network_tags         = ["app"]
+  network_tags         = ["wazuh-server"]
+
   metadata             = {
     metadata_startup_script = file("${path.module}/scripts/app-startup.sh")
   }

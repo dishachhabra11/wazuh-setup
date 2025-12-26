@@ -4,3 +4,6 @@ variable "zone" {}
 variable "image" {}
 variable "network" {}
 variable "subnet" {}
+variable "tags" {
+    list(string)
+}

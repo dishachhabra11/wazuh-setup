@@ -8,5 +8,6 @@ resource "google_compute_region_instance_group_manager" "app_mig" {
   }
   target_size = var.target_size
 
+
   # Optional autoscaling block can be added later
 }

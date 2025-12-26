@@ -14,4 +14,6 @@ resource "google_compute_instance" "this" {
     subnetwork = var.subnet   # use module.network.subnet_names
     access_config {}  # gives external IP
   }
+
+  tags = var.tags
 }
