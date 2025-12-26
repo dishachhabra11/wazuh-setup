@@ -3,6 +3,3 @@ variable "region" {}
 variable "name_prefix" {}
 variable "instance_template_id" {}
 variable "target_size" { default = 1 }
-variable "tags" {
-  type = list(string)
-}
