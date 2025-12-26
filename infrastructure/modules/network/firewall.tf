@@ -62,7 +62,7 @@ resource "google_compute_firewall" "application" {
 
   allow {
     protocol = "tcp"
-    ports    = ["1514 , 1515"]
+    ports    = ["1514" , "1515"]
   }
 
   source_ranges = ["10.0.0.0/8"]
