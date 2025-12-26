@@ -8,7 +8,7 @@ resource "google_compute_firewall" "general" {
   }
 
 
-  source_ranges = ["10.0.0.0/8"]
+  source_ranges = ["0.0.0.0/0"]
 }
 
 
