@@ -4,7 +4,7 @@ resource "random_id" "mig_suffix" {
 
 resource "google_compute_region_instance_group_manager" "wazuh-server-mig" {
   project             = var.project_id
-  name                = "wazuh-mig-${random_id.mig_suffix}"
+  name                = "wazuh-mig-${random_id.mig_suffix.hex}"
   region              = var.region
   base_instance_name  = var.name_prefix
   version {
