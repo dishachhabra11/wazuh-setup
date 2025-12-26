@@ -7,9 +7,6 @@ steps:
     - -c
     - |
       terraform -chdir=./infrastructure init
-      terraform -chdir=./infrastructure import \
-      module.network.google_compute_firewall.application \
-      projects/alfred-chainlake-staging/global/firewalls/dev-wazuh-vpc-wazuh-dashboard
 
 
 # 2. Generate a Plan (preview changes)

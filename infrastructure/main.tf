@@ -86,7 +86,7 @@ module "app_mig" {
   source               = "./modules/mig"
   project_id           = var.project_id
   region               = var.region
-  name_prefix          = "${var.env}-app"
+  name_prefix          = "wazuh-manager"
   instance_template_id = module.app_template.instance_template_id
   target_size          = 2
 }
