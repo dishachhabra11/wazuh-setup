@@ -30,6 +30,8 @@ module "application-1" {
   image        = "ubuntu-minimal-2204-lts"
   network      = module.network.vpc_name
   subnet       = element(module.network.subnet_names, 0)  # gets the first subnet_names
+  tags         = ["application"]
+
 }
 
 module "application-2" {
@@ -40,22 +42,12 @@ module "application-2" {
   image        = "ubuntu-minimal-2204-lts"
   network      = module.network.vpc_name
   subnet       = element(module.network.subnet_names, 0)  # gets the first subnet_names
+  tags         = ["application"]
 }
 
 module "indexer1" {
   source       = "./modules/compute"
   name         = "wazuh-indexer-1"
-  machine_type = "e2-small"
-  zone         = var.zone
-  image        = "ubuntu-minimal-2204-lts"
-  network      = module.network.vpc_name
-  subnet       = element(module.network.subnet_names, 0)  # gets the first subnet_names
-  tags         =["wazuh-indexer"]
-}
-
-module "indexer2" {
-  source       = "./modules/compute"
-  name         = "wazuh-indexer-2"
   machine_type = "e2-small"
   zone         = var.zone
   image        = "ubuntu-minimal-2204-lts"

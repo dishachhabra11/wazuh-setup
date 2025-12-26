@@ -56,3 +56,16 @@ resource "google_compute_firewall" "wazuh_dashboard" {
   target_tags   = ["wazuh-dashboard"]
 }
 
+resource "google_compute_firewall" "application" {
+  name    = "${var.vpc_name}-wazuh-dashboard"
+  network = google_compute_network.vpc.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["1514 , 1515"]
+  }
+
+  source_ranges = ["10.0.0.0/8"]
+  target_tags   = ["application"]
+}
+
