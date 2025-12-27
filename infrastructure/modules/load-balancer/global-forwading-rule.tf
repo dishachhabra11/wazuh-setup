@@ -7,7 +7,7 @@ resource "google_compute_global_forwarding_rule" "tcp_lb" {
   ip_address            = google_compute_global_address.lb_ip.address
 }
 
-resource "google_compute_global_forwarding_rule" "tcp_lb" {
+resource "google_compute_global_forwarding_rule" "tcp_lb-2" {
   name                  = "${var.env}-tcp-lb-2"
   load_balancing_scheme = "EXTERNAL"
   ip_protocol           = "TCP"
