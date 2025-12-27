@@ -2,7 +2,17 @@ resource "google_compute_global_forwarding_rule" "tcp_lb" {
   name                  = "${var.env}-tcp-lb"
   load_balancing_scheme = "EXTERNAL"
   ip_protocol           = "TCP"
-  port_range            = var.port_range
+  port_range            = var.lb_port
   target                = google_compute_target_tcp_proxy.tcp_proxy.id
   ip_address            = google_compute_global_address.lb_ip.address
 }
+
+resource "google_compute_global_forwarding_rule" "tcp_lb" {
+  name                  = "${var.env}-tcp-lb"
+  load_balancing_scheme = "EXTERNAL"
+  ip_protocol           = "TCP"
+  port_range            = var.lb_port2
+  target                = google_compute_target_tcp_proxy.tcp_proxy.id
+  ip_address            = google_compute_global_address.lb_ip.address
+}
+

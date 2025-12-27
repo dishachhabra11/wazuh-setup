@@ -12,6 +12,6 @@ variable "mig_instance_group" {
   type        = string
 }
 
-variable "port_range" {
+variable "lb_port2" {
   type = string
 }

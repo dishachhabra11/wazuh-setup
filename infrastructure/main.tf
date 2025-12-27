@@ -95,7 +95,7 @@ module "wazuh_lb" {
   source              = "./modules/load-balancer"
   env                 = var.env
   lb_port             = "1514"
-  port_range          = "1514-1515"      
+   lb_port2           = "1515"  
   mig_instance_group  = module.wazuh-server-mig.instance_group_self_link
 }
 
