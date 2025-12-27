@@ -11,3 +11,7 @@ variable "mig_instance_group" {
   description = "Self_link of the instance group or managed instance group"
   type        = string
 }
+
+variable "port_range" {
+  type = string
+}
