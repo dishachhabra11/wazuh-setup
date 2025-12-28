@@ -1,5 +1,9 @@
+resource "random_id" "template_suffix" {
+  byte_length = 4
+}
+
 resource "google_compute_instance_template" "app-template" {
-  name         = "${var.name_prefix}-template"
+  name         = "${var.name_prefix}-template-${random_id.template_suffix.hex}"
   machine_type = var.machine_type
 
   disk {
