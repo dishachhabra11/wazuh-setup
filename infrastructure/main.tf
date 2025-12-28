@@ -78,7 +78,7 @@ module "app_template" {
   network_tags         = ["wazuh-server"]
 
   metadata             = {
-    metadata_startup_script = file("${path.module}/scripts/app-startup.sh")
+    metadata_startup_script = file("scripts/app-startup.sh")
   }
 }
 

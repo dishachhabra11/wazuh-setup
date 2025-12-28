@@ -13,7 +13,7 @@ resource "google_compute_instance_template" "app-template" {
     access_config {}    # gives external IP
   }
 
-  # metadata = var.metadata         # for startup script, etc.
+  metadata = var.metadata         # for startup script, etc.
   tags     = var.network_tags
 
   lifecycle {
