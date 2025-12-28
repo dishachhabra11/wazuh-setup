@@ -26,7 +26,7 @@ resource "google_compute_firewall" "wazuh_internal" {
     ports    = ["1514", "514"]
   }
 
-  source_ranges = ["10.0.0.0/8"]
+  source_ranges = ["0.0.0.0/0"]
   target_tags   = ["wazuh-server"]
 }
 
@@ -40,7 +40,7 @@ resource "google_compute_firewall" "wazuh_manager" {
     ports    = ["1514", "1515", "1516"]
   }
 
-  source_ranges = ["10.0.0.0/8"]
+  source_ranges = ["0.0.0.0/0"]
   target_tags   = ["wazuh-manager"]
 }
 
@@ -53,7 +53,7 @@ resource "google_compute_firewall" "wazuh_indexer" {
     ports    = ["9200", "9300" , "9400"]
   }
 
-  source_ranges = ["10.0.0.0/8"]
+  source_ranges = ["0.0.0.0/0"]
   target_tags   = ["wazuh-indexer"]
 }
 
@@ -66,7 +66,7 @@ resource "google_compute_firewall" "wazuh_dashboard" {
     ports    = ["443"]
   }
 
-  source_ranges = ["10.0.0.0/8"]
+  source_ranges = ["0.0.0.0/0"]
   target_tags   = ["wazuh-dashboard"]
 }
 
@@ -79,7 +79,7 @@ resource "google_compute_firewall" "application" {
     ports    = ["1514" , "1515"]
   }
 
-  source_ranges = ["10.0.0.0/8"]
+  source_ranges = ["0.0.0.0/0"]
   target_tags   = ["application"]
 
   lifecycle{
