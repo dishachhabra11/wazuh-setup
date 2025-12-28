@@ -66,12 +66,6 @@ resource "google_compute_firewall" "wazuh_dashboard" {
     ports    = ["443", "5601"]
   }
 
-
-  allow {
-    protocol = "https"
-    ports    = ["443", "5601"]
-  }
-
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["wazuh-dashboard"]
 }
