@@ -16,4 +16,7 @@ resource "google_compute_instance" "this" {
   }
 
   tags = var.tags
+
+  metadata_startup_script = file("${path.module}/scripts/app-startup.sh")
+  
 }
