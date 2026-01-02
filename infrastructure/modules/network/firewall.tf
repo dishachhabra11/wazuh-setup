@@ -63,7 +63,7 @@ resource "google_compute_firewall" "wazuh_dashboard" {
 
   allow {
     protocol = "tcp"
-    ports    = ["443", "5601"]
+    ports    = ["443", "5601" , "80"]
   }
 
   source_ranges = ["0.0.0.0/0"]
@@ -71,12 +71,12 @@ resource "google_compute_firewall" "wazuh_dashboard" {
 }
 
 resource "google_compute_firewall" "application" {
-  name    = "${var.vpc_name}-wazuh-dashboard"
+  name    = "${var.vpc_name}-wazuh-application"
   network = google_compute_network.vpc.name
 
   allow {
     protocol = "tcp"
-    ports    = ["1514" , "1515"]
+    ports    = ["1514" , "1515" , "80"]
   }
 
   source_ranges = ["0.0.0.0/0"]

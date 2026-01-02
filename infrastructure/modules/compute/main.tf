@@ -8,6 +8,7 @@ resource "google_compute_instance" "this" {
       image = var.image
     }
   }
+  tags= var.tags
 
   network_interface {
     network    = var.network  # use module.network.vpc_name
