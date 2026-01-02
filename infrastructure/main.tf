@@ -53,7 +53,7 @@ module "indexer1" {
   image        = "ubuntu-minimal-2204-lts"
   network      = module.network.vpc_name
   subnet       = element(module.network.subnet_names, 0)  # gets the first subnet_names
-  tags         =["wazuh-indexer"]
+  tags         = ["wazuh-indexer"]
 }
 
 module "dashboard" {
@@ -63,8 +63,8 @@ module "dashboard" {
   zone         = var.zone
   image        = "ubuntu-minimal-2204-lts"
   network      = module.network.vpc_name
-  subnet       = element(module.network.subnet_names, 1)  # gets the second subnet_names
-   tags         =["wazuh-dashboard"]
+  subnet       = element(module.network.subnet_names, 0)  # gets the second subnet_names
+  tags         = ["wazuh-dashboard"]
 
 }
 
