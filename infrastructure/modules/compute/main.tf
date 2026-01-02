@@ -16,8 +16,6 @@ resource "google_compute_instance" "this" {
     access_config {}  # gives external IP
   }
 
-  tags = var.tags
-
     metadata_startup_script = <<-EOF
     #!/bin/bash
     
